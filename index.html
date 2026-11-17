@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gennie Mansi, PhD — Portfolio</title>
+<meta name="description" content="Gennie Mansi, PhD — Computer scientist and human-centered designer passionate about developing community-driven technology.">
+<meta property="og:title" content="Gennie Mansi, PhD — Portfolio">
+<meta property="og:description" content="Human-Centered AI Researcher">
+<meta property="og:image" content="assets/headshot.jpg">
+<style>
+  :root {
+    --navy: #1f2d3d;
+    --ink: #3f4a57;
+    --muted: #6b7684;
+    --blue: #4a90d9;
+    --blue-deep: #2e6da4;
+    --blue-wash: #f5f9ff;
+    --blue-card: #eef4fd;
+    --blue-line: #d5e3f5;
+    --amber: #e08a1e;
+    --cream: #fff3de;
+    --cream-line: #f3d9ab;
+    --radius: 14px;
+    --shadow: 0 2px 8px rgba(31, 45, 61, .08);
+    --serif: Cambria, "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+    --sans: Calibri, Carlito, "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--ink);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--blue-deep); text-underline-offset: 2px; }
+  a:hover { color: var(--blue); }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  /* top nav */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--blue-line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+  .nav .brand { font-family: var(--serif); font-weight: 700; color: var(--navy); text-decoration: none; white-space: nowrap; }
+  .nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; overflow-x: auto; }
+  .nav li a {
+    display: block; padding: 6px 12px; border-radius: 999px;
+    font-size: .9rem; font-weight: 700; color: var(--blue-deep); text-decoration: none; white-space: nowrap;
+  }
+  .nav li a:hover { background: var(--blue-card); }
+
+  /* shared type */
+  .eyebrow {
+    font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--amber);
+    margin: 0 0 10px;
+  }
+  h1, h2, h3 { font-family: var(--serif); color: var(--navy); line-height: 1.15; margin: 0; }
+  h2.section-title { font-size: clamp(1.9rem, 4vw, 2.5rem); margin-bottom: 18px; }
+  section { padding: 64px 0; }
+  #education { padding-top: 24px; }
+  .pill {
+    display: inline-block; background: var(--blue); color: #fff;
+    font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 7px 18px; border-radius: 999px;
+  }
+
+  /* hero */
+  .hero { background: var(--blue-wash); padding: 36px 0 28px; }
+  .hero-grid { display: flex; align-items: center; gap: 32px; margin: 0; }
+  .hero img {
+    width: 150px; height: 150px; border-radius: 50%; object-fit: cover; flex: none;
+    border: 4px solid #fff; box-shadow: var(--shadow);
+  }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); }
+  .hero .lede { font-size: 1.2rem; max-width: 34em; margin: 10px 0 0; }
+  .contact-line { margin: 6px 0 0; font-size: .875rem; color: var(--muted); }
+  .contact-line a { color: var(--blue-deep); }
+
+  /* education */
+  .edu { background: #fff; padding: 0; }
+  .edu-item + .edu-item { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--blue-line); }
+  .edu-item p { margin: 4px 0; }
+  .edu-item .meta { color: var(--muted); }
+  .edu-item .label { font-weight: 700; color: var(--navy); }
+  .edu-item em { color: var(--ink); }
+
+  /* positioning */
+  .bullets { padding-left: 22px; margin: 18px 0 32px; }
+  .bullets li { margin: 6px 0; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 800px) { .cards { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--blue-card); border: 1px solid var(--blue-line);
+    border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px 26px;
+  }
+  .card h3 { font-size: 1.2rem; color: var(--blue-deep); margin-bottom: 10px; }
+  .card p { margin: 0; font-size: 1rem; }
+  .card ul { margin: 12px 0 0; padding-left: 18px; font-size: .95rem; }
+  .card li { margin: 5px 0; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; max-width: 680px; }
+  .stat {
+    background: #fff; border: 1px solid var(--blue-line); border-radius: 12px;
+    box-shadow: var(--shadow); padding: 12px 14px; text-align: center;
+  }
+  .stat .num { font-family: var(--serif); font-weight: 700; font-size: 1.8rem; color: var(--blue-deep); line-height: 1.1; }
+  .stat .desc { font-size: .82rem; line-height: 1.35; color: var(--muted); margin-top: 4px; }
+
+  .stats { margin-top: 0; }
+  .stats-wrap { margin-top: 36px; }
+  .tabs { display: flex; gap: 6px; margin: 22px 0 24px; border-bottom: 1px solid var(--blue-line); overflow-x: auto; }
+  .tab {
+    font: inherit; font-weight: 700; color: var(--blue-deep); background: none; border: 0;
+    padding: 10px 18px; cursor: pointer; white-space: nowrap;
+    border-bottom: 3px solid transparent; margin-bottom: -1px;
+  }
+  .tab:hover { color: var(--blue); }
+  .tab[aria-selected="true"] { color: var(--navy); border-bottom-color: var(--blue); }
+  .panel[hidden] { display: none; }
+  .panel-intro { margin: 0 0 18px; }
+  .panel .group:first-child { margin-top: 0; }
+
+  /* featured work */
+  .work { border-top: 1px solid var(--blue-line); }
+  .group-head { padding-bottom: 8px; }
+  .group-head + .work { border-top: 0; padding-top: 8px; }
+  .work-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .counter { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--amber); white-space: nowrap; padding-top: 6px; }
+  .work h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); margin-bottom: 26px; max-width: 24em; }
+  .story {
+    background: var(--cream); border: 1px solid var(--cream-line);
+    border-radius: var(--radius); box-shadow: var(--shadow); padding: 26px 30px;
+  }
+  .story p { margin: 0 0 12px; }
+  .story p:last-child { margin-bottom: 0; }
+  .story b { color: var(--blue-deep); }
+  figure { margin: 34px 0; text-align: center; }
+  figure img { max-width: 100%; height: auto; border-radius: 10px; }
+  figure.framed img { border: 1px solid var(--blue-line); box-shadow: var(--shadow); background: #fff; }
+  figure.small img { max-width: 520px; width: 100%; }
+  figcaption { font-size: .92rem; font-style: italic; color: var(--muted); margin-top: 12px; }
+  .group { margin-top: 26px; }
+  .group h3 {
+    font-family: var(--sans); font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--blue-deep); margin-bottom: 10px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+  .chips li {
+    background: var(--cream); border: 1px solid var(--cream-line); color: var(--navy);
+    font-size: .92rem; padding: 6px 18px; border-radius: 999px;
+  }
+  .pubs { list-style: none; margin: 0; padding: 0; font-size: .95rem; color: var(--muted); }
+  .pubs li { margin: 0 0 10px; }
+  .pubs b { color: var(--navy); }
+  .recognized { font-size: .95rem; }
+
+  footer { border-top: 1px solid var(--blue-line); padding: 28px 0 40px; font-size: .85rem; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    .nav .brand { display: none; }
+    .nav .wrap { justify-content: center; }
+    .nav ul { gap: 0; }
+    .nav li a { padding: 6px 6px; font-size: .8rem; }
+    .hero-grid { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .work-head { flex-direction: column; }
+    .story { padding: 22px 20px; }
+    .stats { gap: 8px; }
+    .stat { padding: 10px 8px; }
+    .stat .num { font-size: 1.4rem; }
+    .stat .desc { font-size: .72rem; }
+    section { padding: 48px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  @media print {
+    .nav { display: none; }
+    .tabs { display: none; }
+    .panel[hidden] { display: block; }
+    section { padding: 28px 0; break-inside: avoid-page; }
+    .work { break-before: page; }
+    .hero, .edu, .card, .story { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="#top">Gennie Mansi</a>
+    <ul>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#positioning">What I bring</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <img src="assets/headshot.jpg" alt="Portrait of Gennie Mansi" width="150" height="150">
+      <div>
+        <h1>Gennie Mansi, PhD</h1>
+        <p class="contact-line"><a href="mailto:gennie.i.mansi@gmail.com">gennie.i.mansi@gmail.com</a> <span aria-hidden="true">·</span> <span>San Luis Obispo, CA</span></p>
+        <p class="lede">Computer scientist and human-centered designer passionate about developing community-driven technology</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="education">
+  <div class="wrap">
+    <p class="eyebrow">Education</p>
+    <div class="edu">
+      <div class="edu-item">
+        <p><span class="label">PhD, Human-Centered Computing</span> (2020–2026) <span class="meta">· Georgia Institute of Technology</span></p>
+        <p><span class="label">Thesis:</span> <em>Centering User Needs at the Intersection of AI and Law</em> <span class="meta">· Advisor: Dr. Mark Riedl</span></p>
+        <p><em>NSF Graduate Research Fellowship (2021–2026) — $140k · STEM Education, Learning Sciences, and Technology</em></p>
+      </div>
+      <div class="edu-item">
+        <p><span class="label">BS, Statistics</span> (2020) <span class="meta">· Baylor University · Outstanding Senior · Minor: Computer Science · Honors Program, Phi Beta Kappa</span></p>
+        <p><span class="label">Thesis:</span> <em>A review and analysis of fault detection and attribution metrics in MSPC literature</em> <span class="meta">· Advisor: Dr. Amanda S. Hering</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="positioning" style="padding-top:8px">
+  <div class="wrap">
+    <h2 class="section-title">What I bring</h2>
+    <div class="tabs" role="tablist" aria-label="What I bring">
+      <button class="tab" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true">Overview</button>
+      <button class="tab" role="tab" id="tab-skills" aria-controls="panel-skills" aria-selected="false" tabindex="-1">Technical Skills</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-overview" aria-labelledby="tab-overview">
+      <p class="panel-intro">I have served as a technical design architect and mentor on teams in healthcare, law and AI governance, education, and humanitarian services.</p>
+        <div class="cards">
+      <div class="card">
+        <h3>Leading the Development of Community-Centered AI Tools</h3>
+        <p>I've worked with teachers, doctors, lawyers, non-profits, and ML practitioners to design, build, and test technology</p>
+        <ul>
+          <li>Working side-by-side with other program leads to shape strategic research initiatives</li>
+          <li>Leading the creation and analysis of co-design sessions to understand and design for end users' needs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Improving software development processes</h3>
+        <p>I've innovated design processes to connect user needs to engineering decisions, evaluate AI-based solutions, and update algorithms in response</p>
+        <ul>
+          <li>Building frameworks to better evaluate and align AI tools with community needs</li>
+          <li>Innovating design methods for interdisciplinary work</li>
+          <li>Collaborating with engineers to build designs into working tools</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Designing and Building with LLMs</h3>
+        <p>I have and continue to use LLMs, code generation, and generative design tools to design and build projects individually and collaboratively</p>
+        <ul>
+          <li>Experimenting with LLMs across the design process, including quick prototyping, software workflow specification, and system development</li>
+          <li>Experimenting with different kinds of models, including models from Anthropic, OpenAI, Hugging Face, and TypeSafe AI (Jev)</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-skills" aria-labelledby="tab-skills" hidden>
+      <div class="group"><h3>Design Methods</h3>
+        <ul class="chips"><li>Scenario-Based Design (SBD)</li><li>Participatory &amp; Co-Design Sessions</li><li>Semi-structured Interviews</li><li>Surveys</li><li>Round Table Discussions</li><li>Field Research &amp; Observations</li><li>Needs Assessment</li><li>Paper &amp; Digital Prototyping</li><li>Wizard-of-Oz Studies</li><li>Usability Testing</li><li>Hardware Prototyping</li></ul></div>
+      <div class="group"><h3>Analysis</h3>
+        <ul class="chips"><li>Thematic Analysis</li><li>Affinity Diagramming</li><li>Literature Review</li><li>Typology Development</li><li>Mixed Methods</li></ul></div>
+      <div class="group"><h3>Design tools</h3>
+        <ul class="chips"><li>Miro</li><li>Adobe InDesign</li><li>Adobe Illustrator</li><li>MaxQDA</li><li>Notion</li><li>Microsoft Suite</li></ul></div>
+      <div class="group"><h3>Programming</h3>
+        <ul class="chips"><li>GitHub</li><li>Python</li><li>JavaScript</li></ul></div>
+      <div class="group"><h3>LLMs and API's Used</h3>
+        <ul class="chips"><li>Claude (Anthropic)</li><li>Claude Code (Anthropic)</li><li>ChatGPT (Open)</li><li>PaddleOCR-VL-1.6 (Hugging Face)</li><li>Jev (TypeSafe AI)</li></ul></div>
+    </div>
+
+
+    <div class="stats-wrap">
+      <div class="stats">
+        <div class="stat"><div class="num">6 yrs</div><div class="desc">human-centered AI design</div></div>
+        <div class="stat"><div class="num">9</div><div class="desc">research projects led or co-led</div></div>
+        <div class="stat"><div class="num">2</div><div class="desc">NSF-funded international field placements — 3 months on-site in Zagreb, Croatia</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work group-head" id="projects">
+  <div class="wrap"><h2 class="section-title">Projects</h2></div>
+</section>
+
+<!-- Featured work 1 -->
+<section class="work" id="legal-risk">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="pills"><span class="pill">AI/ML in Healthcare</span><span class="pill">Inter-disciplinary design</span></div>
+      <div class="counter">Featured work &nbsp;1 / 5</div>
+    </div>
+    <h2>Co-designing legal risk mitigation for medical AI tools</h2>
+    <div class="story">
+      <p><b>Challenge:</b> While there's optimism around medical AI tools, companies and developers can shift legal exposure onto doctors and patients. Addressing these legal risks requires coordinating design across developers, lawyers, doctors, and patients.</p>
+      <p><b>Approach:</b> Built an evaluation framework advancing user-centered evaluations of how people act on AI-provided information. Over 2 years, developed a novel co-design approach with 10 U.S. lawyers to predict and manage risks of medical AI tools, and analyzed 31 legal cases and reported harms to understand impacts on patient care.</p>
+      <p><b>Impact:</b> A re-usable framework for evaluating whether an AI tool's outputs are actionable (published HCII 2026), an innovative approach to integrate lawyers' perspectives, and an accessible visual explainer of the method built in Adobe InDesign.</p>
+    </div>
+    <figure>
+      <img src="assets/legal-risks.jpg" alt="Hand-drawn illustrations of a doctor and patient, a legal document with scales of justice and the letters AI, a hospital with an ambulance, and people building software with gears" loading="lazy">
+      <figcaption>Hand-drawn illustrations from Mansi et al. “Drawing Out Legal Risks” communicating findings and the co-design approach with lawyers. View here: <a href="https://arxiv.org/pdf/2606.30828">https://arxiv.org/pdf/2606.30828</a></figcaption>
+    </figure>
+    <div class="group"><h3>Research &amp; design methods</h3>
+      <ul class="chips"><li>Scenario-Based Design (SBD)</li><li>Semi-Structured Interviews</li><li>Participatory &amp; Co-Design Sessions</li></ul></div>
+    <div class="group"><h3>Analysis</h3>
+      <ul class="chips"><li>Literature Review</li><li>Typology Development</li><li>Affinity Diagramming</li><li>Thematic Analysis</li></ul></div>
+    <div class="group"><h3>Software &amp; design tools</h3>
+      <ul class="chips"><li>MaxQDA</li><li>Miro</li><li>Notion</li><li>Adobe InDesign</li><li>Adobe Illustrator</li><li>LaTeX</li></ul></div>
+    <div class="group"><h3>Publications</h3>
+      <ul class="pubs">
+        <li><b>Mansi, G.</b>, Kim, J., Rosenbloom, M., Riedl, M. Drawing Out Legal Risks: Co-Designing with Lawyers to Predict and Manage Legal Uncertainties of Medical AI Tools. <a href="https://arxiv.org/pdf/2606.30828">https://arxiv.org/pdf/2606.30828</a></li>
+        <li><b>Mansi, G.</b> &amp; Riedl, M. Implications of Current Litigation on the Design of AI Systems for Healthcare Delivery. Nature Health (2026). <a href="https://arxiv.org/pdf/2507.15981">https://arxiv.org/pdf/2507.15981</a></li>
+        <li><b>Mansi, G.</b>, Kim, J., and Riedl, M. Evaluating Actionability in Explainable AI. Proc. 2026 Int'l Conference on Human Computer Interaction (HCII 2026). <a href="https://arxiv.org/pdf/2601.20086">https://arxiv.org/pdf/2601.20086</a></li>
+        <li><b>Mansi, G.</b>, Kim, J., Dombrowski, L., Riedl, M., and Karusala, N. “It’s still 100% on me”: Designing AI Tools for the Intersection of Physicians’ Care and Legal Infrastructures (Under consideration). <a href="https://arxiv.org/pdf/2611.14989">https://arxiv.org/pdf/2611.14989</a></li>
+        <li><b>Mansi, G.</b>, Karusala, N., and Riedl, M. Legally-Informed Explainable AI. “Human-Centered XAI” workshop at CHI '25. <a href="https://arxiv.org/pdf/2504.10708">https://arxiv.org/pdf/2504.10708</a></li>
+        <li><b>Mansi, G.</b> &amp; Riedl, M. Recognizing Lawyers as AI Creators and Intermediaries in Contestability. “From Stem to Stern: Contestability Along AI Value Chains” workshop at CSCW '24. <a href="https://arxiv.org/pdf/2409.17626">https://arxiv.org/pdf/2409.17626</a></li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- Featured work 2 -->
+<section class="work" id="explainable-ai">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="pills"><span class="pill">AI/ML Agents &amp; Pipelines</span><span class="pill">Improving software development processes</span></div>
+      <div class="counter">Featured work &nbsp;2 / 5</div>
+    </div>
+    <h2>Improving algorithms that explain AI agents to non-experts</h2>
+    <div class="story">
+      <p><b>Challenge:</b> Reinforcement learning agents choose actions based on future rewards but discard the qualitative features of their training — making it nearly impossible to recover a user-understandable “why.” Pipelines calling LLMs, APIs, and other algorithms are likewise hard to interpret, intervene on, and modify, leaving users unable to change what an agent does.</p>
+      <p><b>Approach:</b> Worked alongside the technical team developing Experiential Explanations, a technique that restores information about how a policy reflects its environment. I coordinated the analysis of a human evaluation study to inform future work, and helped teams apply World Models to explain RL agents and develop counterfactuals for AI pipelines.</p>
+      <p><b>Impact:</b> Qualitative analysis surfaced which factors of experiential explanations were most useful, directly guiding further technical development, and informed human-factors benchmark use cases for Reverse World Models and Pipelines.</p>
+    </div>
+    <div class="group"><h3>Research &amp; design methods</h3>
+      <ul class="chips"><li>Surveys</li></ul></div>
+    <div class="group"><h3>Analysis</h3>
+      <ul class="chips"><li>Mixed Methods</li><li>Affinity Diagramming</li><li>Thematic Analysis</li></ul></div>
+    <div class="group"><h3>Software &amp; design tools</h3>
+      <ul class="chips"><li>Excel</li><li>Miro</li><li>Python</li><li>LaTeX</li><li>GitHub</li></ul></div>
+    <div class="group"><h3>Publications</h3>
+      <ul class="pubs">
+        <li>Singh, M., Kim, G., Okomoto, M., Ammavajjala, A., <b>Mansi, G.</b>, Riedl, M. Counterfactual Explanations for Agentic Workflows. 2026 CHI Workshop on Human-Centered Explainable AI.</li>
+        <li>Singh, M., Alabdulkumar, A., <b>Mansi, G.</b>, Riedl, M. Explainable RL Agents Using World Models. Explainable AI Workshop at IJCAI '25.</li>
+        <li>Alabdukarim, A., Singh, M., <b>Mansi, G.</b>, Hall, K., Ehsan, U., Riedl, M. Experiential Explanations for Reinforcement Learning. Neural Computing and Applications (NCAA '24).</li>
+        <li>Alabdulkumar, A., <b>Mansi, G.</b>, Hall, K., Riedl, M. Experiential Explanations for Reinforcement Learning. Explainable AI Workshop at IJCAI '23.</li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- Featured work 3 -->
+<section class="work" id="concept-catalyst">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="pills"><span class="pill">AI/ML in Education</span></div>
+      <div class="counter">Featured work &nbsp;3 / 5</div>
+    </div>
+    <h2>Concept Catalyst: Aligning AI-based tools with K-12 engineering teachers' perspectives</h2>
+    <div class="story">
+      <p><b>Challenge:</b> Engineering teachers exercise a high degree of creativity and problem solving as they reflect on personal and professional experiences to create classroom content. While generative AI can help teachers meet demands such as grading or curriculum creation, it is critical to support their reflective practices, empowering them to shape their students' learning.</p>
+      <p><b>Approach:</b> Our team was originally focused on AI-assisted grading. As I ran more teacher interviews, I kept hearing something different: the real burden was writing scaffolding questions, not grading. I raised that with the project leads, made the case to shift direction, and led the redesign.</p>
+      <p><b>Impact:</b> 2 rounds of in-depth interviews with 8 engineering teachers. Prototyped and ran Wizard-of-Oz sessions with 10 more teachers — positive feedback on efficiency and boosted confidence using AI in their classrooms. Shipped a working ChatGPT-based tool.</p>
+    </div>
+    <figure class="framed small">
+      <img src="assets/concept-catalyst.jpg" alt="Concept Catalyst wireframes: a sample student response with key concepts highlighted and a concept map (left), and an interface for generating and editing questions (right)" loading="lazy">
+      <figcaption>Concept Catalyst wireframes: highlighting key concepts in a sample response (left) and generating editable questions (right)</figcaption>
+    </figure>
+    <div class="group"><h3>Research &amp; design methods</h3>
+      <ul class="chips"><li>Semi-structured Interviews</li><li>Round Table Discussions</li><li>Paper &amp; Digital Prototyping</li><li>Wizard-of-Oz Studies</li></ul></div>
+    <div class="group"><h3>Analysis</h3>
+      <ul class="chips"><li>Thematic Analysis</li><li>Affinity Diagramming</li><li>Literature Review</li></ul></div>
+    <div class="group"><h3>Software &amp; design tools</h3>
+      <ul class="chips"><li>MaxQDA</li><li>Miro</li></ul></div>
+    <div class="group"><h3>Publications</h3>
+      <ul class="pubs">
+        <li><b>Mansi, G.</b>, Newton, S., Moore, R., Alemdar, M., Riedl, M. Concept Catalyst: Exploring Scrutable Interfaces to Structure K-12 Teacher Interactions with Generative AI (Under Review). <a href="https://arxiv.org/abs/2606.30590">arxiv.org/abs/2606.30590</a></li>
+        <li>Singh, M., <b>Mansi, G.</b>, and Riedl, M. Creating Learning Scaffolds for Engineering Design Using Concept Catalyst. Proc. Int'l Society of the Learning Sciences (2026). <a href="https://arxiv.org/abs/2605.20511">arxiv.org/abs/2605.20511</a></li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- Featured work 4 -->
+<section class="work" id="borders-none">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="pills"><span class="pill">AI/ML in Humanitarian Work</span><span class="pill">International Experience</span></div>
+      <div class="counter">Featured work &nbsp;4 / 5</div>
+    </div>
+    <h2>AI curriculum generator for Borders:none (Zagreb, Croatia)</h2>
+    <div class="story">
+      <p><b>Challenge:</b> Borders:none, a non-profit supporting migrants and refugees, broadly described wanting some technology to support their volunteer teachers. The challenge was working with stakeholders to identify the goal and design so it would truly serve volunteers' needs rather than add complexity to their work.</p>
+      <p><b>Approach:</b> Built a generative-AI pipeline that converts YouTube transcripts into ready-to-use lesson content. Wrote and won a competitive NSF INTERN grant ($17k total). Traveled to Croatia twice for 7 weeks on-site, interviewing 5 students and 3 teachers directly. Identified generative AI as the right lever and built the prototype myself (Python, Claude Code, GitHub).</p>
+      <p><b>Impact:</b> A tool designed around volunteers' actual time constraints and workflow — grounded in field research instead of assumptions.</p>
+    </div>
+    <div class="group"><h3>Research &amp; design methods</h3>
+      <ul class="chips"><li>Field Research &amp; Observations</li><li>Participatory &amp; Co-Design Sessions</li><li>Needs Assessment</li><li>Digital Prototyping</li><li>Usability Testing</li></ul></div>
+    <div class="group"><h3>Analysis</h3>
+      <ul class="chips"><li>Affinity Diagramming</li><li>Thematic Analysis</li></ul></div>
+    <div class="group"><h3>Software &amp; design tools</h3>
+      <ul class="chips"><li>Miro</li><li>GitHub</li><li>Claude Code</li><li>ChatGPT</li><li>Python</li></ul></div>
+    <div class="group"><h3>Recognized in</h3>
+      <p class="recognized"><a href="https://epale.ec.europa.eu">epale.ec.europa.eu</a> — Improving Volunteerism Through AI</p></div>
+  </div>
+</section>
+
+<!-- Featured work 5 -->
+<section class="work" id="chameleon-clippers">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="pills"><span class="pill">Hardware Prototyping</span><span class="pill">Remote Education</span></div>
+      <div class="counter">Featured work &nbsp;5 / 5</div>
+    </div>
+    <h2>Chameleon Clippers: Fine motor skill feedback for remote K-2 art education</h2>
+    <div class="story">
+      <p><b>Challenge:</b> Museum outreach greatly enriches K-2 art education, but little research had explored bringing that content into fully remote classrooms. A needs assessment (22 surveys, 4 interviews) surfaced a specific, unmet gap: young students had no way to get feedback on the fine motor skills, like scissor control, that art-making depends on.</p>
+      <p><b>Approach:</b> Built a typology of existing remote art platforms and evaluated it against educator-defined requirements, then designed and hand-built a prototype interactive pair of scissors — embedding sensors and a microcontroller into a child-friendly chameleon design — to sense and respond to a child's cutting technique in real time.</p>
+      <p><b>Impact:</b> Preliminary user testing with 12 children (ages 4–7) showed the prototype could surface fine motor feedback during real cutting tasks. The accompanying paper won Best Technical Paper at CSCL 2022.</p>
+    </div>
+    <figure>
+      <img src="assets/chameleon-clippers.jpg" alt="Left: two views of a pair of child scissors with sensors, a microcontroller and a paper-leaf chameleon design attached. Right: the study protocol showing a chameleon that turns from green to orange to red as cutting strays from a dashed line, with photos of a child's hand cutting paper." loading="lazy">
+      <figcaption>The Chameleon Clippers prototype (left) and the child study protocol used to test cutting technique and feedback (right).</figcaption>
+    </figure>
+    <div class="group"><h3>Research &amp; design methods</h3>
+      <ul class="chips"><li>Surveys &amp; Interviews</li><li>Needs Assessment</li><li>Hardware Prototyping</li><li>Usability Testing</li></ul></div>
+    <div class="group"><h3>Analysis</h3>
+      <ul class="chips"><li>Typology Development</li><li>Thematic Analysis</li></ul></div>
+    <div class="group"><h3>Software &amp; design tools</h3>
+      <ul class="chips"><li>Arduino</li><li>Miro</li></ul></div>
+    <div class="group"><h3>Publications</h3>
+      <ul class="pubs">
+        <li><b>Mansi, G.</b>, Roberts, J. Ready, Set, Art: Technology Needs and Tools for Remote K-2 Art Education. 21st ACM Int'l Conference on Interaction Design and Children (IDC '22). <a href="https://dl.acm.org/doi/fullHtml/10.1145/3501712.3529731">https://dl.acm.org/doi/fullHtml/10.1145/3501712.3529731</a></li>
+        <li><b>Mansi, G.</b>, Boone, A., Kim, S., Roberts, J. Chameleon Clippers: A Tool for Developing Fine Motor Skills in Remote Education Settings. CSCL 2022. <b>Best Technical Paper.</b> <a href="https://arxiv.org/pdf/2605.27749">https://arxiv.org/pdf/2605.27749</a></li>
+      </ul></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">2026 · Gennie Mansi, PhD</div>
+</footer>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function show(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t); });
+    t.addEventListener('keydown', function (e) {
+      var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null;
+      if (j === null) return;
+      e.preventDefault();
+      show(tabs[(j + tabs.length) % tabs.length], true);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
